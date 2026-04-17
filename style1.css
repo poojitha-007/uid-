@@ -1,0 +1,121 @@
+Capstone code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chronos Watch</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">CHRONOS</div>
+    <nav>
+        <a>HOME</a>
+        <a>COLLECTION</a>
+        <a>CART</a>
+        <a href="login.html">LOGIN</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <p class="small-text">THE ART OF TIME</p>
+        <h1>Where <span>Elegance</span><br>Meets Precision</h1>
+        <p class="description">
+            Discover our curated collection of exceptional timepieces,
+            crafted for those who appreciate the finer things.
+        </p>
+          <button>EXPLORE COLLECTION →</button></p>
+       </div>
+</section>
+
+</body>
+</html>	Style css 1:first page
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+header {
+    display:flex;
+    justify-content: space-between;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 20px 60px;
+    background: black;
+}
+
+.logo {
+    color: gold;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    
+}
+
+.hero {
+    height: 90vh;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("watch1.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.small-text {
+    color: gold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero-text span {
+    color: gold;
+}
+
+.description {
+    color: #ccc;
+    margin-bottom: 30px;
+    width: 500px;
+}
+
+button {
+    background: gold;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.explore-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #f5c518;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+.welcome-user {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: gold;
+}
+

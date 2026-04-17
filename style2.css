@@ -1,0 +1,552 @@
+body {
+    margin: 0;
+    font-family:'Segoe UI', sans-serif;
+    background: #0b0f1a;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 1px solid #222;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    flex:1;
+}
+
+.logo span {
+    color: #d4a017;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-icon a {
+    color: white;
+    text-decoration: none;
+    border: 2px solid #333;
+    padding: 11px 23px;
+    border-radius: 30px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #d4a017;
+    color: black;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 70%;
+}
+
+
+.collection {
+    padding: 60px;
+    color: white;
+}
+
+.collection h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    flex-wrap: wrap;
+}
+
+.search {
+    padding: 15px 25px;
+    width: 300px;
+    border-radius: 20px;
+    border:white;
+    background: #222;
+    color: white;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+
+}
+.searchWatches input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #f5c518;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+.collection {
+    text-align: center;
+    padding: 40px 20px;
+}
+.sub-title {
+    color: #d4a017;
+    letter-spacing: 4px;
+    font-size: 25px;
+}
+
+h2{
+color :white;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.filters .active {
+    background: #d4a017;
+    color: black;
+    border: none;
+}
+.filters button:hover {
+    background: #d4a017;
+    color: black;
+}
+
+.categories button {
+    padding: 10px 15px;
+    margin-right: 8px;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.categories .active,
+.categories button:hover {
+    background: #d4a017;
+    color: black;
+}
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.desc {
+    font-size: 18px;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    padding: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+}
+
+.card {
+    background: linear-gradient(180deg, #0b0f1a, #111);
+    border: 1px solid #d4a017;
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    width: 320px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(212,160,23,0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background: #000;
+    padding: 20px;
+}
+.card-info {
+    padding: 20px;
+}
+
+.category {
+    color: #d4a017;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.card-info h2 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.desc {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #d4a017;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card button {
+    width: 100%;
+    padding: 10px;
+    background: #d4a017;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background: #0b0f1a;
+    padding: 10px;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(212,160,23,0.2);
+}
+
+.card button {
+    padding: 8px 18px;
+    background: transparent;
+    border: 1px solid #d4a017;
+    color: #d4a017;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: #d4a017;
+    color: black;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+.about-section {
+  background-color: #12110f; /* Deep obsidian */
+  color: #e0d9d1; /* Soft off-white */
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  background: linear-gradient(to right, #d4af37, #fcf6ba, #aa771c); /* Metallic Gold */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.watch-icon {
+  font-size: 2rem;
+  filter: sepia(1) saturate(5) hue-rotate(10deg); /* Makes the emoji look more golden */
+}
+
+.tagline {
+  font-style: italic;
+  color: #b5a48b;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background: #d4af37;
+  margin: 0 auto 30px;
+}
+
+.description {
+  line-height: 1.8;
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 50px;
+}
+
+.mini-footer {
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+}
+/* 5. Card Styling */
+.card {
+    background: rgba(15, 15, 15, 0.85);
+    border: 1px solid #222;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;   
+   background: #fff; 
+}
+
+.card-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category { color: #d4af37; font-size: 0.75rem; letter-spacing: 1px; }
+
+.desc {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: auto; /* Pushes price to bottom */
+    padding: 10px 0;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+/* 1. Global Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0b0f1a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 2. Responsive Header */
+.header {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap on small screens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #222;
+    background: rgba(11, 15, 26, 0.95);
+}
+
+nav {
+    order: 3; /* Moves nav below logo/cart on very small screens */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* 3. Controls & Filters */
+.controls {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 20px;
+    padding: 20px 5%;
+    align-items: center;
+}
+
+.search {
+    width: 100%; /* Full width on mobile */
+    max-width: 400px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    background: #1a1f2c;
+    color: white;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.filters button {
+    background: transparent;
+    border: 1px solid #d4a017;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* 4. Responsive Product Grid */
+.products {
+    display: grid;
+    /* This is the magic line: it creates as many columns as fit, 
+       but never smaller than 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(15, 15, 15, 0.85);
+    border: 1px solid #222;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Take full width of the grid column */
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #fff;
+    padding: 20px;
+}
+
+/* 5. Cart Icon Fix */
+.cart-icon a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #d4a017;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- MEDIA QUERIES FOR LARGER SCREENS --- */
+
+@media (min-width: 768px) {
+    .header {
+        flex-wrap: nowrap;
+    }
+    
+    nav {
+        order: 2;
+        width: auto;
+        margin-top: 0;
+    }
+    
+    .controls {
+        flex-direction: row; /* Side-by-side on desktop */
+        justify-content: space-between;
+    }
+    
+    .search {
+        width: 300px;
+    }
+}
+
+/* Video Background fix */
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Chronoluxe</title>
+    <link rel="stylesheet" href="style4.css">
+    </head>
+<body>
+<header>
+    <div class="logo">⌚ CHRONO<span>LUXE</span></div>
+
+      <nav>
+        <a href="Homepage.html">HOME</a>
+        <a href="collection.html">COLLECTION</a>
+        <a href="About.html">ABOUT</a>
+        <a href="addtocart.html">CART</a>
+        <a href="login.html">LOGIN</a>
+    </nav>
+</header>
+
+    <section class="about-hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Our Legacy</h1>
+            <p>Redefining time through precision and elegance.</p>
+        </div>
+    </section>
+
+    <section class="about-details">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <h3>What is Chronoluxe?</h3>
+                    <p>Chronoluxe is a curated platform for horology enthusiasts. We bridge the gap between world-class craftsmanship and collectors, offering an exclusive selection of timepieces that are more than just watches—they are heirlooms.</p>
+                </div>
+                <div class="info-card reveal">
+                    <h3>Why Choose Us?</h3>
+                    <ul class="benefit-list">
+                        <li><strong>Verified Authenticity:</strong> Every piece is certified.</li>
+                        <li><strong>Global Reach:</strong> Shipping to over 50 countries.</li>
+                        <li><strong>Expert Support:</strong> 24/7 horology consultants.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-box reveal"> 
+                    <h2>4.9/5</h2>
+                    <p>User Rating</p>
+                </div>
+                <div class="stat-box reveal">
+                    <h2>50k+</h2>
+                    <p>Global Viewers</p>
+                </div>
+               <div class="stat-box reveal"> 
+                    <h2>10y+</h2>
+                    <p>Industry Presence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section">
+        <div class="container">
+            <h2 class="section-title">Collector Feedback</h2>
+            <div class="feedback-grid">
+                <div class="feedback-card reveal">
+                    <p>"The interface is as sleek as the watches they sell. Best buying experience online."</p>
+                    <span>- Pullama raju.,India</span>
+                </div>
+                <div class="feedback-card reveal">
+                    <p>"Finally a website that understands the soul of a mechanical watch."</p>
+                    <span>- Sujinee devi.,India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+<script>
+    const observerOptions = {
+        threshold: 0.1 // Triggers when 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Target all elements with the .reveal class
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>

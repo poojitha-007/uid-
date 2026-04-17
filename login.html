@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+            background: #000; /* Fallback color */
+        }
+
+        /* Background Video Fix */
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Responsive Container */
+        .container {
+            display: flex;
+            width: 90%;          /* 90% of screen width on mobile */
+            max-width: 400px;    /* Max width on desktop */
+            min-height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Support for Safari */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .login-box {
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            color: white;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Input Styling for Mobile Tapping */
+        .login-box input {
+            width: 100%;        /* Use full width of the padding */
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 16px;    /* Prevents iOS auto-zoom on focus */
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .login-box input:focus {
+            border-color: #d4a017;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .login-box input::placeholder {
+            color: #ddd;
+        }
+
+        /* Button Styling */
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #d4a017;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 8px;
+            color: #000;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .login-box button:hover {
+            background: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        .switch {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .switch a {
+            color: #d4a017;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        /* Small Screen Adjustments */
+        @media (max-width: 350px) {
+            .login-box h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<video autoplay muted loop id="bgVideo">
+  <source src="v1.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <div class="login-box">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p class="switch">If u don't have an account <a href="signup.html">signup</a></p>
+        <p id="message"></p>
+    </div>
+</div>
+
+<script>
+function login() {
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    let storedUser = localStorage.getItem("username");
+    let storedPass = localStorage.getItem("userPassword");
+
+    let messageArea = document.getElementById("message");
+
+    if(username === "" || password === "") {
+        messageArea.innerText = "Enter all fields";
+        messageArea.style.color = "red";
+        return;
+    }
+
+    if(username === storedUser && password === storedPass) {
+        localStorage.setItem("loggedInUser", username);
+        messageArea.innerText = "Login Successful";
+        messageArea.style.color = "lightgreen";
+
+        setTimeout(() => {
+            window.location.href = "Homepage.html";
+        }, 1000);
+    } else {
+        messageArea.innerText = "Invalid username or password";
+        messageArea.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style-3.css">
+</head>
+<body>
+
+    <div id="checkoutForm" class="checkout-container">
+        <div class="checkout-content">
+            <h2>Shipping Excellence</h2>
+            <p class="subtitle">Enter your details for priority delivery.</p>
+            <form onsubmit="openPaymentModal(event)">
+                <div class="input-group">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <input type="text" placeholder="Shipping Address" required>
+                <div class="input-group">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="Zip Code" required>
+                </div>
+                <button type="submit" class="final-confirm-btn">Confirm & Pay</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-panel active">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <!-- FIXED: Added missing quote and closing bracket -->
+            <span onclick="window.location.href='collection.html'" style="cursor:pointer; font-size: 30px;">&times;</span>
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span id="totalPrice">0</span>
+            </div>
+            <button class="proceed-btn" onclick="showShippingForm()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Select Payment</h3>
+            <div id="paymentOptions" class="payment-options">
+                <button class="pay-option" onclick="finishOrder('COD')">Cash on Delivery</button>
+                <button class="pay-option" onclick="showScanner()"> UPI / Scanner</button>
+            </div>
+            <div id="upiSection" style="display:none; text-align:center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CHRONOLUXE" class="qr-code">
+                <p>Scan to pay</p>
+                <button class="final-confirm-btn" onclick="finishOrder('UPI')">I Have Paid</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-box">
+            <div class="checkmark">✅</div>
+            <h2>Order Placed!</h2>
+            <p>Your luxury timepiece is being prepared.</p>
+            <button onclick="window.location.href='collection.html'">Return to Store</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Load Cart Data
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+            const container = document.getElementById("cartItems");
+            const totalDisplay = document.getElementById("totalPrice");
+            container.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = "<p style='text-align:center;color:#666;margin-top:20px;'>Cart is empty</p>";
+                totalDisplay.innerText = "0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                let itemImg = item.img || item.image || 'watch2.jpg';
+                // Remove commas from price string to ensure math works
+                let itemPrice = parseFloat(String(item.price).replace(/,/g, '')) || 0;
+                let itemQty = item.qty || item.quantity || 1;
+                
+                let subtotal = itemPrice * itemQty;
+                total += subtotal;
+
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${itemImg}">
+                        <div class="cart-info">
+                            <p class="category">WATCH</p>
+                            <h4>${item.name}</h4>
+                            <div class="qty-box">
+                                <button onclick="updateQty(${index}, -1)">-</button>
+                                <span>${itemQty}</span>
+                                <button onclick="updateQty(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="price-section">
+                            <div class="cart-price">${subtotal.toLocaleString()}</div>
+                            <!-- FIXED: Corrected ${index} syntax -->
+                            <div class="delete-btn" style="cursor:pointer;" onclick="removeItem(${index})">🗑️</div>
+                        </div>
+                    </div>`;
+            });
+            totalDisplay.innerText = total.toLocaleString();
+        }
+
+        // 2. Logic Functions
+        function updateQty(index, amt) {
+            let currentQty = cart[index].qty || cart[index].quantity || 1;
+            let newQty = currentQty + amt;
+            
+            if (newQty <= 0) {
+                removeItem(index);
+            } else {
+                cart[index].qty = newQty;
+                cart[index].quantity = newQty; // Keep both names in sync
+                save();
+            }
+        }
+
+        // Renamed to removeItem for clarity and fixed syntax
+        function removeItem(index) {
+            cart.splice(index, 1);
+            save();
+        }
+
+        function save() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        // 3. UI Navigation
+        function showShippingForm() {
+            if(cart.length > 0) {
+                document.getElementById("checkoutForm").classList.add("show");
+            } else { 
+                alert("Cart is empty"); 
+            }
+        }
+
+        function openPaymentModal(e) {
+            if(e) e.preventDefault();
+            document.getElementById("paymentModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("paymentModal").style.display = "none";
+            document.getElementById("upiSection").style.display = "none";
+            document.getElementById("paymentOptions").style.display = "flex";
+        }
+
+        function showScanner() {
+            document.getElementById("paymentOptions").style.display = "none";
+            document.getElementById("upiSection").style.display = "block";
+        }
+
+        function finishOrder(method) {
+            localStorage.removeItem("cart");
+            cart = []; // Clear local variable
+            document.getElementById("paymentModal").style.display = "none";
+            document.getElementById("successOverlay").style.display = "flex";
+        }
+
+        // Initial Load
+        renderCart();
+    </script>
+</body>
+</html>

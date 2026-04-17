@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+    <title>Watch Collection</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<video autoplay muted loop id="bgVideo">
+  <source src="collection video.mp4" type="video/mp4">
+</video>
+<header class="header">
+    <div class="logo">⌚ CHRONO<span>LUXE</span></div>
+      <nav>
+           <a href="Homepage.html">HOME</a>
+            <a href="collection.html">COLLECTION</a>
+            <a href="About.html">ABOUT</a>
+            <a href="addtocart.html">CART</a>
+            <a href="login.html">LOGOUT</a>
+        </nav>
+
+
+    <div class="cart-icon">
+        <a href="addtocart.html">🛒 Cart</a>
+        <span id="cart-count">1</span>
+    </div>
+</header>
+
+<section class="collection">
+    <p class="sub-title">OUR COLLECTION</p>
+    <h1>Exceptional Timepieces</h1>
+
+    <div class="controls">
+  <input type="text" id="searchInput" onkeyup="searchWatches()" placeholder="🔍 Search watches..." class="search">
+ </div>
+</section>
+     <div class="products"  id="productGrid">
+
+        <div class="card"  data-gender="mens">
+            <img src="watch2.jpg">
+            <div class="card-info">
+                <p class="category">OCEANIC</p>
+                <h2>Deep Blue Diver</h2>
+                <p class="desc">A robust diver’s watch designed for underwater endurance. Its deep blue accents highlight its adventurous spirit.</p>
+                <p class="price">₹3,600</p>
+                <button onclick="addToCart('Deep Blue Diver', 3600, 'watch2.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="mens">
+            <img src="watch3.jpg">
+            <div class="card-info">
+                <p class="category">OCEANIC</p>
+                <h2>Lime Storm</h2>
+                <p class="desc">Sporty and vibrant with lime detailing. Perfect for those who love bold, energetic designs.</p>
+                <p class="price">₹2,600</p>
+                <button onclick="addToCart('Lime Storm', 2600,'watch3.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="mens">
+            <img src="watch4.jpg">
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Classic Steel</h2>
+                 <p class="desc"> A timeless stainless steel piece that exudes elegance. Ideal for everyday sophistication.</p>
+              <p class="price">₹2,000</p>
+                <button onclick="addToCart('Classic Steel', 2000,'watch4.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="mens">
+            <img src="watch5.jpg">
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Royal black</h2>
+                <p class="desc">Sleek black dial paired with luxury craftsmanship. A refined choice for formal occasions.</p>
+                <p class="price">₹2,200</p>
+                <button onclick="addToCart('Royal black', 2200,'watch5.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="womens">
+            <img src="watch6.jpg">
+            <div class="card-info">
+                <p class="category">TITANIC</p>
+                <h2>Raga</h2>
+                <p class="desc"> A premium statement watch blending tradition with modern artistry. Crafted for those who value exclusivity.</p>
+                <p class="price">₹5,000</p>
+                <button onclick="addToCart('Raga', 5000,'watch6.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="mens">
+            <img src="watch7.jpg">
+            <div class="card-info">
+                <p class="category">TITANIC</p>
+                <h2>Black Phantom</h2>
+                <p class="desc">Dark and mysterious with a commanding presence. A bold accessory for confident personalities.</p>
+                 <p class="price">₹3,600</p>
+                <button onclick="addToCart('Black Phantom', 3600,'watch7.jpg')">Add to Cart</button>
+            </div>
+        </div>
+       <div class="card" data-gender="mens">
+            <img src="watch8.jpg">
+            <div class="card-info">
+                <p class="category">TITANIC<p>
+                <h2>silver storm</h2>
+                <p class="desc"> Shimmering silver finish that radiates sophistication. A versatile piece for both work and leisure.</p>
+                <p class="price">₹4,500</p>
+                <button onclick="addToCart('silver storm', 4500,'watch8.jpg')">Add to Cart</button>
+            </div>
+        </div>
+         <div class="card" data-gender="womens">
+            <img src="watch9.jpg">
+            <div class="card-info">
+                <p class="category">SARVOSKI</p>
+                <h2>Golden Edge</h2>
+                <p class="desc"> Glamorous gold‑trimmed design with a luxury edge. Perfect for making a dazzling impression.</p>
+                <p class="price">₹3,800</p>
+                <button onclick="addToCart('Golden Edge', 3800,'watch9.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card" data-gender="mens">
+            <img src="watch10.jpg">
+            <div class="card-info">
+                <p class="category">SARVOSKI</p>
+                <h2>Automatic</h2>
+                <p class="desc">Smooth automatic movement with classic appeal. A blend of tradition and modern mechanics.</p>
+                <p class="price">₹2,300</p>
+               <button onclick="addToCart('Automatic', 2300 ,'watch10.jpg')">Add to Cart</button>
+            </div>
+        </div>
+       <div class="card" data-gender="womens">
+            <img src="watch11.jpg">
+            <div class="card-info">
+                <p class="category">TITANIC</p>
+                <h2>Green dial</h2>
+                <p class="desc">Vibrant green face that stands out uniquely. A stylish twist for watch enthusiasts.</p>
+                <p class="price">₹2,600</p>
+                <button onclick="addToCart('Green dial', 2600,'watch11.jpg')">Add to Cart</button>
+            </div>
+        </div>
+      <div class="card" data-gender="womens">
+            <img src="watch12.jpg">
+            <div class="card-info">
+                <p class="category">SARVOSKI</p>
+                <h2>Bulova</h2>
+                <p class="desc">A refined automatic watch blending tradition with modern mechanics. Its smooth movement ensures timeless reliability.</p>
+                <p class="price">₹3,000</p>
+               <button onclick="addToCart('Bulova', 3000,'watch12.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+    <div class="card" data-gender="womens">
+            <img src="watch13.jpg">
+            <div class="card-info">
+                <p class="category">SARVOSKI</p>
+                <h2>Armitron</h2>
+                <p class="desc">Classic appeal meets contemporary design. A versatile piece for both casual and formal wear.</p>
+                <p class="price">₹1,500</p>
+                <button onclick="addToCart('Armitron', 1500,'watch13.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    <div class="card" data-gender="mens">
+            <img src="watch14.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <p class="desc">Bold black stainless steel construction with sleek durability. Perfect for those who prefer a strong, modern look.</p>
+                <h2>black stainless</h2>
+                <p class="price">₹7,000</p>
+                <button onclick="addToCart('black strainless', 7000, 'watch14.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    <div class="card" data-gender="womens">
+            <img src="watch15.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>Peari dail</h2>
+                <p class="desc">Elegant dial design with smooth automatic movement. A stylish choice for everyday sophistication..</p>
+                <p class="price">₹2,500</p>
+                <button onclick="addToCart('Peari dail', 2500, 'watch15.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="womens">
+            <img src="watch16.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>stainless steel</h2>
+               <p class="desc">Timeless stainless steel finish with mechanical precision. Built for lasting elegance and versatility./p>
+               <p class="price">₹2,800</p>
+                <button onclick="addToCart('stainless steel', 2800, 'watch16.jpg')">Add to Cart</button>
+            </div>
+        </div>
+  <div class="card" data-gender="mens" >
+            <img src="watch17.jpg" >
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>leather</h2>
+               <p class="desc"> A warm leather strap paired with classic mechanics. Ideal for a refined yet casual style.</p>
+               <p class="price">₹4,500</p>
+                <button onclick="addToCart('leather', 4500, 'watch17.jpg')">Add to Cart</button>
+            </div>
+        </div>
+  <div class="card" data-gender="mens">
+            <img src="watch18.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>chronograph brown</h2>
+                <p class="desc">Functional chronograph with a rich brown tone. Combines utility with fashionable design.</p>
+                <p class="price">₹1,900</p>
+                <button onclick="addToCart('chronograph brown', 1900, 'watch18.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="mens">
+            <img src="watch19.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>catchy</h2>
+                <p class="desc"> A standout design with modern flair. Crafted to catch attention while maintaining classic appeal.</p>
+                <p class="price">₹3,200</p>
+                <button onclick="addToCart('catchy', 3200,'watch19.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="mens">
+            <img src="watch20.jpg">
+            <div class="card-info">
+                <p class="category">FOSSIL</p>
+                <h2>Blue leather</h2>
+                <p class="desc">Vibrant blue leather strap adds a unique twist. A bold accessory for watch enthusiasts.</p>
+                <p class="price">₹2,300</p>
+                <button onclick="addToCart('Armitron',2300, 'watch20.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+
+<div class="card"  data-gender="womens">
+            <img src="watch21.jpg">
+            <div class="card-info">
+                <p class="category">SARVOSKI</p>
+                <h2>silver watch</h2>
+               <p class="desc">Sleek silver finish with luxury detailing. A glamorous piece for special occasions.</p>
+                <p class="price">₹4,600</p>
+                <button onclick="addToCart('silver watch',4600,'watch21.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="mens">
+            <img src="watch22.jpg">
+            <div class="card-info">
+                <p class="category">FASTRACK</p>
+                <h2>Thor Quartz</h2>
+                <p class="desc"> A bold quartz watch with smooth mechanics. Built for durability and everyday style.</p>
+                <p class="price">₹6,000</p>
+                <button onclick="addToCart('Thor Quartz',6000,'watch22.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="mens">
+            <img src="watch23.jpg">
+            <div class="card-info">
+                <p class="category">FASTRACK</p>
+                <h2>Quartz chronograph</h2>
+                <p class="desc">Functional chronograph design with classic appeal. Perfect for those who value precision.</p>
+                <p class="price">₹5,300</p>
+                <button onclick="addToCart('Quartz chronograph', 5300,'watch23.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="womens">
+            <img src="watch24.jpg" >
+            <div class="card-info">
+                <p class="category">FASTRACK</p>
+                <h2>Analog Brown</h2>
+                <p class="desc">Warm brown tones paired with timeless analog charm. A versatile piece for casual wear.</p>
+                <p class="price">₹4,200</p>
+                <button onclick="addToCart('Analog Brown',4200,'watch24.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card"  data-gender="womens">
+            <img src="watch25.jpg">
+            <div class="card-info">
+                <p class="category">FASTRACK</p>
+                <h2>pink watch</h2>
+                <p class="desc">Playful pink design with modern mechanics. Adds a fun twist to your collection.</p>
+                <p class="price">₹2,700</p>
+                <button onclick="addToCart('pink watch',2700,'watch25.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card"  data-gender="womens">
+            <img src="watch26.jpg" >
+            <div class="card-info">
+                <p class="category">fastrack</p>
+                <h2>Amoled display</h2>
+                <p class="desc">Smooth automatic movement with classic appeal. A blend of tradition and modern mechanics.</p>
+                <p class="price">₹3,900</p>
+                <button onclick="addToCart('Amoled display',3900,'watch26.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card"  data-gender="womens">
+            <img src="watch27.jpg" >
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Rose gold diamond</h2>
+                <p class="desc">Luxurious rose gold with diamond detailing. A refined choice for elegant occasions.</p>
+                <p class="price">₹7,000</p>
+                <button onclick="addToCart('Rose gold diamond', 7000,'watch27.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+<div class="card"  data-gender="womens">
+            <img src="watch28.jpg" >
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Dyster perpetual</h2>
+                <p class="desc">Iconic perpetual movement with sleek design. Crafted for those who appreciate heritage.</p>
+                <p class="price">₹9,000</p>
+                <button onclick="addToCart('Dyster perpetual', 9000,'watch28.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+<div class="card">
+            <img src="watch29.jpg" data-gender="womens">
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Gold and diamond</h2>
+                <p class="desc"> Classic gold paired with sparkling diamonds. A statement of prestige and luxury.</p>
+                <p class="price">₹6,600</p>
+                <button onclick="addToCart('Gold and diamond', 6600,'watch29.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+<div class="card" data-gender="mens">
+            <img src="watch30.jpg">
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>stainless steel</h2>
+                <p class="desc"> Timeless stainless steel finish with refined craftsmanship. Perfect for everyday sophistication.</p>
+                <p class="price">₹5,500</p>
+                <button onclick="addToCart('stainless steel', 5500,'watch30.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card" data-gender="mens">
+            <img src="watch31.jpg">
+            <div class="card-info">
+                <p class="category">ROLEX</p>
+                <h2>Submariner</h2>
+                <p class="desc">Legendary diver’s watch with unmatched precision. Built for adventure and luxury alike.</p>
+                <p class="price"> ₹7,800</p>
+                <button onclick="addToCart('Royal black', 7800,'watch31.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+<div class="card" data-gender="mens">
+            <img src="watch32.jpg" >
+            <div class="card-info">
+                <p class="category">SYLVI</p>
+                <h2>Sylvi premium</h2>
+                <p class="desc">Legendary diver’s watch with unmatched precision. Built for adventure and luxury alike.</p>
+                <p class="price">₹5,800</p>
+                <button onclick="addToCart('Sylvi premium', 5800,'watch32.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card">
+            <img src="watch33.jpg">
+            <div class="card-info">
+                <p class="category">SYLVI</p>
+                <h2>Elegadoom</h2>
+                <p class="desc">Legendary diver’s watch with unmatched precision. Built for adventure and luxury alike.</p>
+                <p class="price"> ₹5,300</p>
+                <button onclick="addToCart('Royal black', 5300,'watch33.jpg')">Add to Cart</button>
+            </div>
+        </div>
+<div class="card">
+            <img src="watch34.jpg" data-gender="mens">
+            <div class="card-info">
+                <p class="category">SYLVI</p>
+                <h2>Water proof</h2>
+                <p class="desc">Legendary diver’s watch with unmatched precision. Built for adventure and luxury alike.</p>
+                <p class="price">₹4,800</p>
+                <button onclick="addToCart('Royal black', 4800,'watch34.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="about-section">
+  <div class="container">
+    <div class="logo-wrapper">
+      <span class="watch-icon">⌚</span>
+      <h2 class="brand-name">CHRONOLUXE</h2>
+    </div>
+    
+    <p class="tagline">Defining time through the lens of excellence.</p>
+    
+    <div class="divider"></div>
+    
+    <p class="description">
+      Since our inception, Chronoluxe has been dedicated to the art of horology. 
+      We don't just sell watches; we curate instruments of precision that tell 
+      your story across generations.
+    </p>
+
+    <footer class="mini-footer">
+      <p>&copy; 2026 ChronoLuxe. Crafted with precision.</p>
+    </footer>
+  </div>
+</section>
+<script src="coll.js"></script>
+
+
+</body>
+</html>

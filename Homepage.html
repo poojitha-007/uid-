@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronos Watch</title>
+<link rel="stylesheet" href="style1.css">
+ <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000; /* black background */
+      color: #fff;
+    }
+
+    footer {
+      background-color: #000;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      margin: 15px;
+    }
+
+    .footer-column h3 {
+      color: #d4af37; /* gold accent */
+      margin-bottom: 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.6;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-column a:hover {
+      color: #d4af37;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-column {
+        margin: 10px 0;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+    <div class="logo">⌚ CHRONO<span>LUXE</span></div>
+    <div class="welcome-user" id="welcomeUser"></div>
+
+    <nav>
+        <a href="Homepage.html">HOME</a>
+        <a href="collection.html">COLLECTION</a>
+        <a href="About.html">ABOUT</a>
+        <a href="addtocart.html">CART</a>
+        <a href="login.html">LOGIN</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <p class="small-text">THE ART OF TIME</p>
+        <h1>Where <span>Elegance</span><br>Meets Precision</h1>
+        <p class="description">
+            Discover our curated collection of exceptional timepieces,
+            crafted for those who appreciate the finer things.
+        </p>
+        <a href="collection.html">
+            <button class="explore-btn">EXPLORE COLLECTION →</button>
+        </a>
+    </div>
+</section>
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>CHRONOS</h3>
+        <p>Curating the world's finest timepieces since 2026.<br>
+        Every watch tells a story.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>NAVIGATE</h3>
+        a href="Homepage.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="cart.html">Cart</a>
+
+      </div>
+
+      <div class="footer-column">
+        <h3>CONTACT</h3>
+        <p>Email: info@chronos.watch</p>
+        <p>Phone: +1 (555) 000-0000</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 CHRONOS. All rights reserved.
+    </div>
+  </footer>
+<script>
+    let user = localStorage.getItem("username");
+
+    if (!user) {
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("welcomeUser").innerText = "Welcome, " + user;
+    }
+
+    function logout() {
+        localStorage.removeItem("username");
+    }
+</script>
+
+</body>
+</html>

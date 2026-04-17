@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box; /* Prevents padding from breaking width */
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* RESPONSIVE CONTAINER */
+        .container {
+            display: flex;
+            width: 90%;          /* Uses 90% of screen on mobile */
+            max-width: 400px;    /* Stops growing at 400px on Desktop */
+            min-height: auto;    /* Let content define height for small screens */
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari support */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .login-box {
+            width: 100%; 
+            padding: 40px 25px; /* Adjusted padding for mobile */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            color: white;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            margin-bottom: 25px;
+            color: #d4a017;
+            font-size: 28px;
+        }
+
+        /* INPUTS - Optimized for Touch */
+        .login-box input {
+            width: 100%; /* Take full available width of container */
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            outline: none;
+            font-size: 16px; /* Prevents iOS auto-zoom on focus */
+        }
+
+        .login-box input:focus {
+            border-color: #d4a017;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-box input::placeholder {
+            color: #ccc;
+        }
+
+        /* BUTTON - Larger touch target */
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            background: #d4a017;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-box button:hover {
+            background: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        /* LINKS */
+        .login-box p.switch {
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .login-box a {
+            color: #d4a017;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* MESSAGE */
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            min-height: 20px; /* Prevents layout jump when text appears */
+        }
+
+        /* Adjustments for very small phones */
+        @media (max-width: 350px) {
+            .login-box h1 { font-size: 24px; }
+            .login-box { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<video autoplay muted loop id="bgVideo" playsinline>
+  <source src="v1.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <div class="login-box">
+        <h1>Create Account</h1>
+        <input type="text" id="newName" placeholder="Full Name" 
+       required pattern="^[A-Za-z\s]+$" title="Name should contain only alphabets">
+
+<input type="email" id="newEmail" placeholder="Email Address" 
+       required pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Only @gmail.com addresses allowed">
+
+<input type="password" id="newPassword" placeholder="Password" 
+       required minlength="8">
+        <button onclick="signUp()">Create an account</button>
+        <p id="message"></p>
+        <p class="switch">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</div>
+
+<script>
+function signUp() {
+    let name = document.getElementById("newName").value.trim();
+    let email = document.getElementById("newEmail").value.trim();
+    let password = document.getElementById("newPassword").value.trim();
+    let messageBox = document.getElementById("message");
+
+    let nameRegex = /^[A-Za-z\s]+$/;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+    if(name === "" || email === "" || password === "") {
+        messageBox.innerText = "Please fill all fields";
+        messageBox.style.color = "#ff4d4d";
+        return;
+    }
+
+    if(!nameRegex.test(name)) {
+        messageBox.innerText = "Name should contain only alphabets";
+        messageBox.style.color = "#ff4d4d";
+        return;
+    }
+
+    if(!emailRegex.test(email)) {
+        messageBox.innerText = "Only @gmail.com emails allowed";
+        messageBox.style.color = "#ff4d4d";
+        return;
+    }
+
+    if(!passRegex.test(password)) {
+        messageBox.innerText = "Password: 8+ chars, Uppercase, & Special Char";
+        messageBox.style.color = "#ff4d4d";
+        return;
+    }
+
+    // Local Storage
+    localStorage.setItem("username", name);
+    localStorage.setItem("usergmail", email);
+    localStorage.setItem("userPassword", password);
+
+    messageBox.innerText = "Account Created!";
+    messageBox.style.color = "lightgreen";
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1500);
+}
+</script>
+</body>
+</html>
